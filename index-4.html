@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MICROFEST 2026</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;text-align:center;color:white;
+ font-family:Arial,sans-serif;
+ background:radial-gradient(circle at center,#351064,#100020 65%,#03000b);
+ overflow-x:hidden;
+}
+.stars{position:fixed;inset:0;pointer-events:none;
+background-image:radial-gradient(white 1px,transparent 1px);
+background-size:45px 45px;opacity:.25}
+.main{position:relative;padding:35px 15px}
+.dna{font-size:75px;animation:spin 5s linear infinite}
+@keyframes spin{to{transform:rotateY(360deg)}}
+h1{font-size:38px;color:#f7d77b;text-shadow:0 0 20px #b75cff}
+h2{color:#d7aaff}
+input{
+ padding:15px;width:85%;max-width:330px;
+ border:1px solid #d9a8ff;border-radius:12px;
+ background:#18052e;color:white;font-size:17px;
+}
+button{
+ padding:14px 25px;margin:18px;
+ border:0;border-radius:25px;
+ background:linear-gradient(90deg,#9b4dff,#f4c76b);
+ color:#160426;font-weight:bold;font-size:15px;
+}
+.card{
+ display:none;max-width:380px;margin:25px auto;
+ padding:25px;border:2px solid #e9c46a;
+ border-radius:22px;
+ background:linear-gradient(145deg,#421477,#100521);
+ box-shadow:0 0 35px #a64dff;
+ animation:reveal 1.3s ease;
+}
+@keyframes reveal{
+ from{opacity:0;transform:perspective(600px) rotateY(90deg) scale(.7)}
+ to{opacity:1;transform:perspective(600px) rotateY(0) scale(1)}
+}
+.microbes{font-size:30px;letter-spacing:10px;
+animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+hr{border:1px solid #d9ae60}
+.small{color:#d9c5f5;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="main">
+<div class="microbes">🦠 🧫 🧬</div>
+<div class="dna">🧬</div>
+
+<h1>MICROFEST 2026</h1>
+<h2>THE MICROBIAL UNIVERSE</h2>
+
+<p class="small">
+EXPLORE THE INVISIBLE<br>
+DISCOVER THE EXTRAORDINARY
+</p>
+
+<p>Enter your name to unlock your invitation</p>
+
+<input id="name" type="text" placeholder="Enter Student Name">
+<br>
+<button onclick="openInvitation()">OPEN MY INVITATION</button>
+
+<div class="card" id="card">
+<div class="microbes">🦠 🧬 🧫</div>
+<h2>YOU ARE INVITED!</h2>
+<h1>MICROFEST 2026</h1>
+<h3>THE MICROBIAL UNIVERSE</h3>
+<hr>
+<p>Dear <b id="student"></b>,</p>
+<p class="small">
+Get ready to explore the fascinating world
+of microorganisms, science and discovery!
+Join us for a spectacular celebration.
+</p>
+<hr>
+<h3>SGS ARTS COLLEGE</h3>
+<p>Tirupati</p>
+<h2>20 OCTOBER 2026</h2>
+<h3>10:00 AM</h3>
+<div class="microbes">🧬 🦠 🔬</div>
+<p>WE WELCOME YOU!</p>
+</div>
+</div>
+
+<script>
+function openInvitation(){
+ const name=document.getElementById("name").value.trim();
+ if(!name){
+  alert("Please enter your name!");
+  return;
+ }
+ document.getElementById("student").textContent=name;
+ document.getElementById("card").style.display="block";
+ document.getElementById("card").scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
